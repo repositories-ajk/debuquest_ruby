@@ -1,12 +1,12 @@
 require 'pry'
-require './questions/q1/main'
+require './questions/q1/question'
 
 class Execution
   QUESTION_NUMS = [1]
 
   class << self
     def Q1
-      Questions::Q1::Main.execute
+      Questions::Q1::Question.start
     end
 
     def validate(num)
