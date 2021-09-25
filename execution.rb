@@ -1,12 +1,17 @@
 require 'pry'
+require './q0/method'
 require './q1/method'
 
 class Execution
-  QUESTION_NUMS = [1]
+  QUESTION_NUMS = [0, 1]
 
   class << self
 
     # 各問題ごとに実行されるメソッド
+    def q0
+      Q0::Method.execute
+    end
+
     def q1
       Q1::Method.execute
     end
