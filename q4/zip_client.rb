@@ -8,18 +8,17 @@ module Q4
       params = { zipcode: zipcode }
       res = call(params)
 
-      if !res.body['data'].nil?
-        result = res.body["data"]["fullAddress"]
-      else
-        result = '不明な住所'
-      end
+      result = if !res.body['data'].nil?
+                 res.body["data"]["fullAddress"]
+               else
+                 '不明な住所'
+               end
 
       result
     end
 
     def self.call(params = nil)
-      res = BaseApiClient.get_connection(BASE_URL, params)
+      BaseApiClient.get_connection(BASE_URL, params)
     end
-
   end
 end
