@@ -32,6 +32,42 @@ bundle exec ruby execution.rb
 
 ## 問題
 
-### 問 1
+### 問 0
 
-- プログラムが正しく動くようにしてください
+- Q. プログラムが正しく動くようにしてください
+
+例
+
+```
+好きな数字を入力してください
+1
+もう一度数字を入力してください
+5
+足し算します
+6
+```
+
+- 回答
+
+```
+require './base.rb'
+
+module Q0
+  class Method < Base
+    def self.execute
+      puts "好きな数字を入力してください"
+      num_1 = gets.chomp.to_i
+
+      puts "もう一度数字を入力してください"
+      num_2 = gets.chomp.to_i
+
+      puts "足し算します"
+
+      sum = (num_1 + num_2)
+
+      puts sum
+    end
+  end
+end
+
+```
