@@ -4,4 +4,9 @@ source "https://rubygems.org"
 
 git_source(:github) {|repo_name| "https://github.com/#{repo_name}" }
 
+# debug
 gem 'pry'
+
+# api
+gem 'faraday'
+gem 'faraday_middleware'
