@@ -3,7 +3,7 @@ module Q3
     def self.continue(select_range)
       begin
         input_value = gets.chomp.to_i
-        raise unless [1, 2].include?(input_value)
+        raise unless select_range.include?(input_value)
       rescue
         puts '選択できない番号です'
         retry

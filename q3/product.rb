@@ -12,50 +12,40 @@ module Q3
       @price = price
     end
 
-    class << self
+    def self.seed
+      seed_list = [
+        { name: 'りんご', price: 150 },
+        { name: 'みかん', price: 100 },
+        { name: 'コーラ', price: 160},
+        { name: 'レモンサワー', price: 500 },
+        { name: '焼き鳥', price: 80 }
+      ]
 
-      def list=(list)
-        @@list = list
-      end
+      @@list = seed_list.map { |list| new(list) }
+    end
 
-      def list
-        @@list
-      end
+    def self.disp_list
+      puts '商品リスト'
+      puts '-------------------'
+      @@list.each.with_index(1){ |product, i| puts "No.#{i}. 商品名: #{product.name} (#{product.price}円)"}
+      puts '-------------------'
+    end
 
-      def seed
-        seed_list = [
-          { name: 'りんご', price: 150 },
-          { name: 'みかん', price: 100 },
-          { name: 'コーラ', price: 160},
-          { name: 'レモンサワー', price: 500 },
-          { name: '焼き鳥', price: 80 }
-        ]
+    def self.choose
+      product_size = @@list.size
 
-        self.list = seed_list.map { |list| new(list) }
-      end
+      puts '商品を選んでください'
 
-      def disp_list
-        puts '商品リスト'
-        puts '-------------------'
-        list.each.with_index(1){ |product, i| puts "No.#{i}. 商品名: #{product.name} (#{product.price}円)"}
-        puts '-------------------'
-      end
+      input_value = SelectUtil.continue(1..product_size)
+      select_num = input_value - 1
+      choose_product = { product: @@list[select_num] }
 
-      def choose
-        product_size = list.size
+      puts '個数を入力してください'
 
-        puts '商品を選んでください'
+      input_value = gets.chomp.to_i
+      choose_count = { count: input_value }
 
-        input_value = SelectUtil.continue(1..product_size)
-        choose_product = { product: list[input_value - 1] }
-
-        puts '個数を入力してください'
-
-        input_value = gets.chomp.to_i
-        choose_count = { count: input_value }
-
-        choose_product.merge(choose_count)
-      end
+      choose_product.merge(choose_count)
     end
   end
 end
