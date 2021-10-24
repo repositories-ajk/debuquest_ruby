@@ -29,16 +29,18 @@ module Q6
     def get_total_price(count)
       total_price = price * count
 
-      discount(total_price, count)
-
-      total_price
+      total_price - discount_price(total_price, count)
     end
 
     private
 
-    def discount(total_price, count)
-      total_price -= 100 if count >= 3
-      total_price -= 100 if is_discount_day?
+    def discount_price(total_price, count)
+      _discount_price = 0
+
+      _discount_price += 100 if count >= 3
+      _discount_price += 100 if is_discount_day?
+
+      _discount_price
     end
 
     def is_discount_day?
