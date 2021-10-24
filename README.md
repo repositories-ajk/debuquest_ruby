@@ -82,3 +82,16 @@ bundle exec ruby execution.rb
 問 8 同様にエラーは rescue で拾うようにしています。
 
 ### 江原ここまで
+
+### 問 10
+
+- ユーザー ID が表示されうように修正してください
+
+### 問 10 回答
+
+13 行目、19 行目の変数定義箇所に@を追記
+
+```
+base_info → @base_info
+detail_info → @detail_info
+```
