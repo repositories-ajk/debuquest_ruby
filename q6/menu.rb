@@ -14,38 +14,25 @@ module Q6
 
       target_class = self.class.name.split('::').last
 
-      case target_class
-      when 'Food'
-        sub_text = "(#{calorie}kcal)"
-      when 'Drink'
-        sub_text = "(#{amount}mL)"
-      else
-        sub_text = ""
-      end
-
-      text + sub_text
+      text
     end
 
     def get_total_price(count)
       total_price = price * count
 
-      total_price - discount_price(total_price, count)
+      discount(total_price, count)
+
+      total_price
     end
 
     private
 
-    def discount_price(total_price, count)
-      _discount_price = 0
-
-      _discount_price += 100 if count >= 3
-      _discount_price += 100 if is_discount_day?
-
-      _discount_price
+    def discount(total_price, count)
+      total_price -= 100 if count >= 3
+      total_price -= 100 if is_discount_day?
     end
 
     def is_discount_day?
-      today = Date.today
-      today.monday?
     end
   end
 end

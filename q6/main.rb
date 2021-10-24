@@ -11,7 +11,7 @@ module Q6
 
       menus = [food1, food2, drink1, drink2]
 
-      puts "月曜日は全品100円引き！"
+      puts "◯曜日は全品100円引き！"
       puts "--------------"
 
       menus.each.with_index(1) do |menu, i|
