@@ -1,9 +1,11 @@
 require 'pry'
 require './q0/method'
 require './q1/method'
+require './q8/method'
+require './q9/method'
 
 class Execution
-  QUESTION_NUMS = [0, 1]
+  QUESTION_NUMS = [0, 1, 8, 9]
 
   class << self
 
@@ -14,6 +16,14 @@ class Execution
 
     def q1
       Q1::Method.execute
+    end
+
+    def q8
+      Q8::Method.execute
+    end
+
+    def q9
+      Q9::Method.execute
     end
 
     # ここから下は絶対触らないでね！(あじーより)
