@@ -5,9 +5,11 @@ require './q3/main'
 require './q4/main'
 require './q5/main'
 require './q6/main'
+require './q8/method'
+require './q9/method'
 
 class Execution
-  QUESTION_NUMS = [0, 1, 2, 3, 4, 5, 6]
+  QUESTION_NUMS = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 
   class << self
 
@@ -34,6 +36,14 @@ class Execution
 
     def q6
       Q6::Main.execute
+    end
+
+    def q8
+      Q8::Method.execute
+    end
+
+    def q9
+      Q9::Method.execute
     end
 
     # ここから下は絶対触らないでね！(あじーより)
