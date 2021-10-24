@@ -5,13 +5,13 @@ module Q4
     BASE_URL = 'https://api.zipaddress.net/'
 
     def self.get_full_address(zipcode)
-      return raise unless validate_zipcode(zipcode)
+      return raise Validation Error unless validate_zipcode(zipcode)
 
       params = { zipcode: zipcode }
       res = call(params)
 
-      result = if !res.body['data'].nil?
-                 res.body["data"]["fullAddress"]
+      result = if res
+                 res
                else
                  '不明な住所'
                end
@@ -25,7 +25,7 @@ module Q4
     private_class_method :call
 
     def self.validate_zipcode(value)
-      code_regex = /^[0-9]{3}-?[0-9]{4}$/
+      code_regex = /^[0-9]{3}[0-9]{4}$/
 
       value =~ code_regex
     end

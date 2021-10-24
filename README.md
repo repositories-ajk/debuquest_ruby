@@ -120,3 +120,156 @@ module Q1
 end
 
 ```
+
+### 問 4
+
+- Q1. 郵便番号は「ハイフンあり」「ハイフンなし」どちらも入力出来るように修正してください
+
+```
+◯ 100-0001
+◯ 1000001
+```
+
+- 回答
+
+`zip_client.rb`
+
+```
+def self.validate_zipcode(value)
+  code_regex = /^[0-9]{3}-?[0-9]{4}$/
+
+  value =~ code_regex
+end
+```
+
+- Q2. 今のままプログラムを動かすと `uninitialized constant Q4::BaseApiClient::Faraday (NameError)` が発生します。このエラーを解消してください。
+
+- 回答
+
+`base_api_client.rb`
+
+```
+require "faraday_middleware"
+
+module Q4
+  module BaseApiClient
+    private
+
+    def self.get_connection(url, params = nil)
+      conn = Faraday.new(url: url, params: params) do |f|
+        f.request :json
+        f.request :retry
+        f.response :follow_redirects
+        f.response :json
+      end
+
+      res = conn.get
+    end
+  end
+en
+```
+
+- Q3. プログラムが次のように動くように修正してください。
+
+例:1
+
+```
+郵便番号を入力してください
+1000001
+
+入力された郵便番号の住所は
+東京都千代田区千代田 です
+```
+
+例:2
+
+```
+郵便番号を入力してください
+000-0000
+
+入力された郵便番号の住所は
+不明な住所 です
+```
+
+- 回答
+
+```
+def self.get_full_address(zipcode)
+  return raise Validation Error unless validate_zipcode(zipcode)
+
+  params = { zipcode: zipcode }
+  res = call(params)
+
+  result = if !res.body['data'].nil?
+             res.body["data"]["fulladdress"]
+           else
+             '不明な住所'
+           end
+
+  result
+end
+
+```
+
+- 最終的なコード
+
+`base_api_client.rb`
+
+```
+require "faraday_middleware"
+
+module Q4
+  module BaseApiClient
+    private
+
+    def self.get_connection(url, params = nil)
+      conn = Faraday.new(url: url, params: params) do |f|
+        f.request :json
+        f.request :retry
+        f.response :follow_redirects
+        f.response :json
+      end
+
+      res = conn.get
+    end
+  end
+end
+```
+
+`zip_client.rb`
+
+```
+require './q4/base_api_client.rb'
+
+module Q4
+  module ZipClient
+    BASE_URL = 'https://api.zipaddress.net/'
+
+    def self.get_full_address(zipcode)
+      return raise Validation Error unless validate_zipcode(zipcode)
+
+      params = { zipcode: zipcode }
+      res = call(params)
+
+      result = if !res.body['data'].nil?
+                 res.body["data"]["fullAddress"]
+               else
+                 '不明な住所'
+               end
+
+      result
+    end
+
+    def self.call(params = nil)
+      BaseApiClient.get_connection(BASE_URL, params)
+    end
+    private_class_method :call
+
+    def self.validate_zipcode(value)
+      code_regex = /^[0-9]{3}-?[0-9]{4}$/
+
+      value =~ code_regex
+    end
+  end
+end
+```

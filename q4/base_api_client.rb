@@ -1,5 +1,3 @@
-require "faraday_middleware"
-
 module Q4
   module BaseApiClient
     private

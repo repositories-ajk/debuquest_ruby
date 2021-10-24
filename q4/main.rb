@@ -1,5 +1,6 @@
 require './base.rb'
 require './q4/zip_client.rb'
+require './q4/validation_error.rb'
 
 module Q4
   class Main < Base
@@ -12,7 +13,7 @@ module Q4
 
         puts '入力された郵便番号の住所は'
         puts "#{full_address} です"
-      rescue
+      rescue ValidationError
         puts '正しい郵便番号を入力してください'
       end
     end
