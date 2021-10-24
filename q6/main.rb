@@ -5,8 +5,8 @@ module Q6
   class Main < Base
     def self.execute
       begin
-        food1 = Food.new(name: "焼き鳥", price: 800, calorie: 700)
-        food2 = Food.new(name: "モツ煮込み", price: 1000, calorie: 600)
+        food1 = Food.new(name: "焼き鳥", price: 100, calorie: 700)
+        food2 = Food.new(name: "モツ煮込み", price: 200, calorie: 600)
         drink1 = Drink.new(name: "ビール", price: 400, amount: 500)
         drink2 = Drink.new(name: "レモンサワー", price: 280, amount: 400)
 

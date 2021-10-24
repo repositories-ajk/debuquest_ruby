@@ -1,13 +1,13 @@
 require './base.rb'
 require './q3/cart'
-require './q3/product'
+require './q3/menu'
 require './q3/user'
 require './q3/campaign'
 
 module Q3
   class Main < Base
     def self.execute
-      Product.seed
+      Menu.seed
 
       user = User.new(1000)
 
@@ -16,7 +16,7 @@ module Q3
       campaigns = [campaign_1, campaign_2]
 
       user.shopping
-      user.judge_product_buy(campaigns)
+      user.judge_menu_buy(campaigns)
     end
   end
 end

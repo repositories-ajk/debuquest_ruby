@@ -4,23 +4,23 @@ module Q3
   class Cart < Base
     attr_reader :total_price
     def initialize
-      @products = []
+      @menus = []
       @total_price = 0
     end
 
-    def add(product)
-      @products << product
+    def add(menu)
+      @menus << menu
     end
 
     def calc_total_price(campaigns = nil)
-      product_count = 0
-      prices = @products.map do |shopping_list|
-        product_count += shopping_list[:count]
-        shopping_list[:product].price * shopping_list[:count]
+      menu_count = 0
+      prices = @menus.map do |shopping_list|
+        menu_count += shopping_list[:count]
+        shopping_list[:menu].price * shopping_list[:count]
       end
 
       discout_price = 0
-      campaigns.each { |campaign| discout_price += campaign.apply(product_count).to_i } if !campaigns.nil?
+      campaigns.each { |campaign| discout_price += campaign.apply(menu_count).to_i } if !campaigns.nil?
 
       @total_price = prices.sum - discout_price
     end

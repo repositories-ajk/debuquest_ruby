@@ -10,12 +10,12 @@ module Q3
       @cart = Cart.new
     end
 
-    def add_cart(product)
-      cart.add(product)
+    def add_cart(menu)
+      cart.add(menu)
     end
 
-    def judge_product_buy(campaigns)
-      if can_buy_product?(campaigns)
+    def judge_menu_buy(campaigns)
+      if can_buy_menu?(campaigns)
         @money -= cart.total_price
         puts "お買い上げありがとうございました！"
         disp_info(column: '合計金額', value: cart.total_price)
@@ -29,10 +29,10 @@ module Q3
 
     def shopping
       while true
-        Product.disp_list
-        product = Product.choose
+        Menu.disp_list
+        menu = Menu.choose
 
-        cart.add(product)
+        cart.add(menu)
 
         break unless continue_shopping?
       end
@@ -59,7 +59,7 @@ module Q3
       continue == input_value
     end
 
-    def can_buy_product?(campaigns)
+    def can_buy_menu?(campaigns)
       cart.calc_total_price(campaigns)
       @money >= cart.total_price
     end

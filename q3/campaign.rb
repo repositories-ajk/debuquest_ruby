@@ -9,10 +9,10 @@ module Q3
       @day_of_week = day_of_week
     end
 
-    def apply(product_count)
+    def apply(menu_count)
       today = Date.today
       return if !!@day_of_week && !today.public_send("#{@day_of_week}?")
-      return if !!@count && product_count < @count
+      return if !!@count && menu_count < @count
 
       @discout_price
     end
