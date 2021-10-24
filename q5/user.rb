@@ -11,17 +11,11 @@ module Q5
     end
 
     def create_user(name:, role:)
-      if admmin?
-        User.new(name: name, role: role)
-      else
-        puts '※権限がありません※'
-        puts '--------------------'
-      end
+      User.new(name: name, role: role)
     end
 
     def change_admin(user)
       if admmin?
-        return puts '既に管理者です' if user.admmin?
         user.role = 'admin'
       else
         puts '※権限がありません※'
@@ -30,12 +24,12 @@ module Q5
     end
 
     def admmin?
-      role == 'admin'
+      true
     end
 
     def disp_data
       puts "名前: #{name}"
-      puts "権限: #{ROLE[role.to_sym]}"
+      puts "権限: #{ROLE[role]}"
       puts '--------------------'
     end
 

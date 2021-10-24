@@ -273,3 +273,95 @@ module Q4
   end
 end
 ```
+
+### 問 5
+
+- Q. プログラムが正しく動くように実装してください
+
+挙動
+
+```
+〜管理ユーザー作成〜
+名前: 管理ユーザー
+権限: 管理者
+--------------------
+〜一般ユーザー作成〜
+名前: 一般ユーザー
+権限: 一般
+--------------------
+〜管理ユーザーによるユーザー作成〜
+名前: ユーザー1
+権限: 一般
+--------------------
+〜一般ユーザーによるユーザー作成〜
+※権限がありません※
+--------------------
+〜一般ユーザーによりユーザー1の権限を変更〜
+※権限がありません※
+--------------------
+名前: ユーザー1
+権限: 一般
+--------------------
+〜管理ユーザーにより一般ユーザーの権限を変更〜
+名前: 一般ユーザー
+権限: 管理者
+--------------------
+〜管理ユーザーにより一般ユーザーの権限を変更(2回目)〜
+既に管理者です
+名前: 一般ユーザー
+権限: 管理者
+--------------------
+```
+
+- 回答
+
+```
+require './base.rb'
+
+module Q5
+  class User < Base
+    ROLE = { admin: '管理者', general: '一般' }
+    attr_reader :name, :role
+
+    def initialize(name:, role:)
+      @name = name
+      @role = role
+    end
+
+    def create_user(name:, role:)
+      if admmin?
+        User.new(name: name, role: role)
+      else
+        puts '※権限がありません※'
+        puts '--------------------'
+      end
+    end
+
+    def change_admin(user)
+      if admmin?
+        return puts '既に管理者です' if user.admmin?
+        user.role = 'admin'
+      else
+        puts '※権限がありません※'
+        puts '--------------------'
+      end
+    end
+
+    def admmin?
+      role == 'admin'
+    end
+
+    def disp_data
+      puts "名前: #{name}"
+      puts "権限: #{ROLE[role.to_sym]}"
+      puts '--------------------'
+    end
+
+    protected
+
+    def role=(role)
+      @role = role
+    end
+  end
+end
+```
