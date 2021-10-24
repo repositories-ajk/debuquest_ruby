@@ -15,6 +15,7 @@ module Q5
         User.new(name: name, role: role)
       else
         puts '※権限がありません※'
+        puts '--------------------'
       end
     end
 
@@ -24,6 +25,7 @@ module Q5
         user.role = 'admin'
       else
         puts '※権限がありません※'
+        puts '--------------------'
       end
     end
 
@@ -32,7 +34,6 @@ module Q5
     end
 
     def disp_data
-      puts '--------------------'
       puts "名前: #{name}"
       puts "権限: #{ROLE[role.to_sym]}"
       puts '--------------------'
