@@ -7,8 +7,7 @@ module Q4
     def self.get_full_address(zipcode)
       return raise Validation Error unless validate_zipcode(zipcode)
 
-      params = { zipcode: zipcode }
-      res = call(params)
+      res = call
 
       result = if res
                  res
