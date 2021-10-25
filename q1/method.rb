@@ -1,31 +1,35 @@
 require './base.rb'
 
-module Q1
-  class Method < Base
-    def self.execute
-      puts "お名前を入力してください"
-      name = set_name
+# ユーザー情報統合
+class MergeInfo
+  def info
+    name = "木村"
+    id = "123abc"
+    password = "pass123"
+    country = "japan"
+    age = 30
 
-      return puts "文字列で入力してください" if get_string?(name)
+    # ユーザー基本情報格納
+    base_info = {
+      name: name,
+      id: id,
+      password: password
+    }
 
-      disp_name(name)
-    end
+    # ユーザー詳細情報格納
+    detail_info = {
+      country: country,
+      age: age
+    }
+  end
 
-    def self.disp_name(naem)
-      puts "#{@name}さん、こんにちわ！！"
-    end
-    private_class_method :disp_name
-
-    def self.set_name
-      self.name = gets.chomp
-
-      @name
-    end
-    private_class_method :set_name
-
-    def self.get_string?(target)
-      target.is_a?(String)
-    end
-    private_class_method :get_string?
+  def merge
+    userinfo = @base_info.merge(@detail_info)
+    res_id = userinfo[:id]
+    puts res_id
   end
 end
+
+mergeinfo = MergeInfo.new
+mergeinfo.info
+mergeinfo.merge

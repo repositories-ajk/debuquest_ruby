@@ -19,7 +19,7 @@ class Execution
     end
 
     def q1
-      Q1::Method.execute
+
     end
 
     def q3
