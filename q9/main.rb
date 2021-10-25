@@ -11,7 +11,9 @@ class Q9::Main < Base
     user = Q9::User.new(1000)
 
     campaign_1 = Q9::Campaign.new(name: '3個以上で100円引き！', discout_price: 100, count: 3)
-    campaign_2 = Q9::Campaign.new(name: '毎週月曜日は100円引き！', discout_price: 100, day_of_week: 'sunday')
+
+    #MEMO: ご自分が実装される曜日を英語で「day_of_week」に入れてください。(例: 日曜日なら、「day_of_week: 'sunday'」)
+    campaign_2 = Q9::Campaign.new(name: '毎週◯曜日は100円引き！', discout_price: 100, day_of_week: 'sunday')
     campaigns = [campaign_1, campaign_2]
 
     user.shopping

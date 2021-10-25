@@ -59,7 +59,7 @@ class Q9::User < Base
   end
 
   def can_buy_menu?(campaigns)
-    cart.calc_total_price(campaigns)
+    cart.calc_total_price
     @money >= cart.total_price
   end
 end
