@@ -1,5 +1,4 @@
 require './base.rb'
-require './q9/q9.rb'
 
 class Q6::Method < Base
 

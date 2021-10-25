@@ -7,7 +7,7 @@ class Q5::Method < Base
     number = [2, 5, 10, 30]
 
     # ここから下のコードは変更しないこと
-    if Q8::Calc.twice(numbers) == [4, 10, 20, 60]
+    if Q5::Calc.twice(numbers) == [4, 10, 20, 60]
       puts "おめでとう！正解です！"
     else
       raise
