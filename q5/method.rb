@@ -1,8 +1,7 @@
 require './base.rb'
-require './q8/calc.rb'
-require './q8/q8.rb'
+require './q5/calc.rb'
 
-class Q8::Method < Base
+class Q5::Method < Base
 
   def self.execute
     number = [2, 5, 10, 30]

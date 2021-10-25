@@ -1,6 +1,6 @@
 require './base.rb'
 
-module Q1
+module Q2
   class Method < Base
     def self.execute
       puts "お名前を入力してください"

@@ -1,7 +1,7 @@
 require './base.rb'
-require './q5/user.rb'
+require './q4/user.rb'
 
-module Q5
+module Q4
   class Main < Base
     def self.execute
       puts '〜管理ユーザー作成〜'

@@ -1,6 +1,6 @@
 require './base.rb'
 
-module Q5
+module Q4
   class User < Base
     ROLE = { admin: '管理者', general: '一般' }
     attr_reader :name, :role
