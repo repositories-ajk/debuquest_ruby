@@ -1,11 +1,17 @@
 require 'pry'
 require './q0/method'
 require './q1/method'
-require './q8/method'
-require './q9/method'
+require './q2/method'
+require './q3/main'
+require './q4/main'
+require './q5/method'
+require './q6/method'
+require './q7/main'
+require './q8/main'
+require './q9/main'
 
 class Execution
-  QUESTION_NUMS = [0, 1, 8, 9]
+  QUESTION_NUMS = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 
   class << self
 
@@ -18,12 +24,36 @@ class Execution
       Q1::Method.execute
     end
 
+    def q2
+      Q2::Method.execute
+    end
+
+    def q3
+      Q3::Main.execute
+    end
+
+    def q4
+      Q4::Main.execute
+    end
+
+    def q5
+      Q5::Method.execute
+    end
+
+    def q6
+      Q6::Method.execute
+    end
+
+    def q7
+      Q7::Main.execute
+    end
+
     def q8
-      Q8::Method.execute
+      Q8::Main.execute
     end
 
     def q9
-      Q9::Method.execute
+      Q9::Main.execute
     end
 
     # ここから下は絶対触らないでね！(あじーより)

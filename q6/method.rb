@@ -1,7 +1,6 @@
 require './base.rb'
-require './q9/q9.rb'
 
-class Q9::Method < Base
+class Q6::Method < Base
 
   def self.execute
     puts "「y」 キーを押してスロットマシーンを回してください！"
@@ -23,7 +22,7 @@ class Q9::Method < Base
     number2 = numbers.sumple
     number3 = numbers.sample
 
-    Q9::Method.check_numbers(number: number, number2: number2, number3: number3)
+    Q6::Method.check_numbers(number: number, number2: number2, number3: number3)
 
   rescue
     puts "エラーが発生しています。どこでエラーしているのか調査しましょう。"
@@ -33,7 +32,7 @@ class Q9::Method < Base
   private
 
     def self.check_numbers(number:, number2:, number3:)
-      same_numbers_count = Q9::Method.count_same_numbers(number: number, number2: number2, number3: number3)
+      same_numbers_count = Q6::Method.count_same_numbers(number: number, number2: number2, number3: number3)
       puts "結果: |#{number}|#{number2}|#{number3}|"
       case same_numbers_count
       when 1

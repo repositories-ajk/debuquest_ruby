@@ -1,32 +1,25 @@
 require './base.rb'
 
-module Q1
-  class Method < Base
-    class << self
+class Q1::Method < Base
+  def self.execute
+    # -------- 以下編集不可 --------
+    animals = ["dog", "cat"]
+    output_value(animals)
 
-      def disp_name(naem)
-        "#{@name}さん、こんにちわ！！"
+    empty_array = []
+    output_value(empty_array)
+  # -------- ここまで --------
+  end
+
+  def self.output_value(array)
+    # -------- 編集可 --------
+    if araay
+      araay.each do |v|
+        puts v
       end
-
-      def set_name
-        name = gets.chomp
-
-        name
-      end
-
-      def get_string?(target)
-        target.is_a?(String)
-      end
-
-      def execute
-        puts "お名前を入力してください"
-        name = set_name
-
-        return puts "文字列で入力してください" if Method.get_string?(name)
-
-        puts disp_name(name)
-      end
-
+    else
+      puts "配列が空です"
     end
+    # -------- ここまで --------
   end
 end
