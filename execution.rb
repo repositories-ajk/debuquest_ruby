@@ -1,5 +1,6 @@
 require 'pry'
 require './q0/method'
+require './q1/method'
 require './q2/method'
 require './q3/main'
 require './q4/main'
@@ -20,7 +21,7 @@ class Execution
     end
 
     def q1
-
+      Q1::Method.execute
     end
 
     def q2
