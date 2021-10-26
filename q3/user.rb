@@ -1,7 +1,7 @@
 require './base.rb'
 
 # ユーザー情報統合
-class MergeInfo
+class Q3::MergeInfo
   def info
     name = "木村"
     id = "123abc"
@@ -29,7 +29,3 @@ class MergeInfo
     puts res_id
   end
 end
-
-mergeinfo = MergeInfo.new
-mergeinfo.info
-mergeinfo.merge
