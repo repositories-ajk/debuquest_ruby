@@ -1,5 +1,5 @@
 require './base.rb'
-require './q3/user.rb'
+require './q3/merge_info.rb'
 
 class Q3::Main < Base
   def self.execute
