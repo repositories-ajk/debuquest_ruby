@@ -26,12 +26,12 @@ GEM
       faraday (~> 1.0)
     method_source (1.0.0)
     multipart-post (2.1.1)
-    pry (0.14.1)
+    pry (0.13.1)
       coderay (~> 1.1)
       method_source (~> 1.0)
-    pry-byebug (3.8.0)
+    pry-byebug (3.9.0)
       byebug (~> 11.0)
-      pry (~> 0.10)
+      pry (~> 0.13.0)
     ruby2_keywords (0.0.5)
 
 PLATFORMS
@@ -40,7 +40,7 @@ PLATFORMS
 DEPENDENCIES
   faraday
   faraday_middleware
-  pry
+  pry (~> 0.13.0)
   pry-byebug
 
 BUNDLED WITH
