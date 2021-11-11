@@ -5,13 +5,13 @@
 0. clone 後最初に以下を実行してください
 
 ```
-bundle install --path vendor/bundle
+$ bundle install
 ```
 
 1. アプリ直下で以下を実行
 
 ```
-bundle exec ruby execution.rb
+$ bundle exec ruby execution.rb
 ```
 
 2. 挑戦したい問題番号を入力してください
