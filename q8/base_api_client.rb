@@ -1,15 +1,18 @@
+require "faraday_middleware"
 
-module Q8::BaseApiClient
-  private
-
-  def self.get_connection(url, params = nil)
-    conn = Faraday.new(url: url, params: params) do |f|
+class Q8::BaseApiClient
+  def initialize(url)
+    @conn = Faraday.new(url: url) do |f|
       f.request :json
       f.request :retry
       f.response :follow_redirects
       f.response :json
     end
+  end
 
-    res = conn.get
+  def full_address(zipcode)
+    params = { zipcode: zipcode }
+    res = @conn.get("/", params)
+    res.body.dig("data", "fullAddress")
   end
 end

@@ -9,28 +9,25 @@ class Q7::Menu
   end
 
   def info
-    text = "#{self.name} #{self.price}円"
-
-    target_class = self.class.name.split('::').last
-
-    text
+    text = "#{name} #{price}円"
   end
 
-  def get_total_price(count)
+  def total_price(count)
     total_price = price * count
-
-    discount(total_price, count)
-
+    total_price = discount(total_price: total_price, count: count)
     total_price
   end
 
   private
 
-  def discount(total_price, count)
+  def discount(total_price:, count:)
     total_price -= 100 if count >= 3
     total_price -= 100 if is_discount_day?
+    total_price
   end
 
   def is_discount_day?
+    today = Date.today
+    today.monday?
   end
 end

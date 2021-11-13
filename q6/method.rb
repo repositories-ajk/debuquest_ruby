@@ -1,16 +1,13 @@
-require './base.rb'
+require "./base.rb"
 
 class Q6::Method < Base
-
   def self.execute
     puts "「y」 キーを押してスロットマシーンを回してください！"
 
     begin
       input_key = gets.chomp
 
-      unless input_key == "y"
-        raise
-      end
+      raise unless input_key == "y"
     rescue
       puts "「y」キーを押してください"
       retry
@@ -19,15 +16,13 @@ class Q6::Method < Base
     numbers = [1, 3, 5, 7]
 
     number = numbers.sample
-    number2 = numbers.sumple
+    number2 = numbers.sample
     number3 = numbers.sample
 
     Q6::Method.check_numbers(number: number, number2: number2, number3: number3)
-
   rescue
     puts "エラーが発生しています。どこでエラーしているのか調査しましょう。"
   end
-
 
   private
 

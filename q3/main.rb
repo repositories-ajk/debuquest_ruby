@@ -3,8 +3,8 @@ require './q3/merge_info.rb'
 
 class Q3::Main < Base
   def self.execute
-    mergeinfo = Q3::MergeInfo.new
-    mergeinfo.info
-    mergeinfo.merge
+    merge_info = Q3::MergeInfo.new
+    merge_info.info
+    merge_info.merge
   end
 end

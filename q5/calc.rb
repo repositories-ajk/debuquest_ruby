@@ -1,8 +1,8 @@
-require './base.rb'
+require "./base.rb"
 
 class Q5::Calc < Base
 
-  def self.twice(arr)
-    arr * 2
+  def self.twice(numbers)
+    numbers.map {|number| number * 2}
   end
 end

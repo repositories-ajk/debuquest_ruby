@@ -4,7 +4,12 @@ class Q7::Drink < Q7::Menu
   attr_accessor :amount
 
   def initialize(name:, price:, amount:)
-    super(name: name, price: price)
+    @name = name
+    @price = price
     @amount = amount
+  end
+
+  def info
+    text = "#{name} #{price}円(#{amount}ml)"
   end
 end

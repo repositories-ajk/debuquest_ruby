@@ -1,14 +1,14 @@
-require 'pry'
-require './q0/method'
-require './q1/method'
-require './q2/method'
-require './q3/main'
-require './q4/main'
-require './q5/method'
-require './q6/method'
-require './q7/main'
-require './q8/main'
-require './q9/main'
+require "pry"
+require "./q0/method"
+require "./q1/method"
+require "./q2/method"
+require "./q3/main"
+require "./q4/main"
+require "./q5/method"
+require "./q6/method"
+require "./q7/main"
+require "./q8/main"
+require "./q9/main"
 
 class Execution
   QUESTION_NUMS = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]

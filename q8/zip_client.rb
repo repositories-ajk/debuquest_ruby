@@ -1,30 +1,24 @@
-require './q8/base_api_client.rb'
+require "./q8/base_api_client.rb"
 
-module Q8::ZipClient
-  BASE_URL = 'https://api.zipaddress.net/'
+class Q8::ZipClient
+  BASE_URL = "https://api.zipaddress.net/"
 
-  def self.get_full_address(zipcode)
-    return raise Validation Error unless validate_zipcode(zipcode)
+  def initialize
+    @client ||= Q8::BaseApiClient.new(BASE_URL)
+  end
 
-    res = call
-
-    result = if res
-                res
-              else
-                '不明な住所'
-              end
-
+  def full_address(zipcode)
+    raise ValidationError unless validate_zipcode(zipcode)
+    res = @client.full_address(zipcode)
+    result = res || "不明な住所"
     result
   end
 
-  def self.call(params = nil)
-    Q8::BaseApiClient.get_connection(BASE_URL, params)
-  end
-  private_class_method :call
+  private
 
-  def self.validate_zipcode(value)
-    code_regex = /^[0-9]{3}[0-9]{4}$/
+    def validate_zipcode(value)
+      code_regex = /^[0-9]{3}[0-9]{4}$/
 
-    value =~ code_regex
-  end
+      value =~ code_regex
+    end
 end

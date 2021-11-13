@@ -10,14 +10,14 @@ class Q3::MergeInfo
     age = 30
 
     # ユーザー基本情報格納
-    base_info = {
+    @base_info = {
       name: name,
       id: id,
       password: password
     }
 
     # ユーザー詳細情報格納
-    detail_info = {
+    @detail_info = {
       country: country,
       age: age
     }
