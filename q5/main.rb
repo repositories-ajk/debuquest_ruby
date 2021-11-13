@@ -4,11 +4,11 @@ require "./q5/user.rb"
 class Q5::Main < Base
   def self.execute
     puts "〜管理ユーザー作成〜"
-    admin_user = Q4::User.new(name: "管理ユーザー", role: "admin")
+    admin_user = Q5::User.new(name: "管理ユーザー", role: "admin")
     admin_user.disp_data
 
     puts "〜一般ユーザー作成〜"
-    general_user = Q4::User.new(name: "一般ユーザー", role: "general")
+    general_user = Q5::User.new(name: "一般ユーザー", role: "general")
     general_user.disp_data
 
     puts "〜管理ユーザーによるユーザー作成〜"

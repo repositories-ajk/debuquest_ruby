@@ -9,18 +9,22 @@ class Q5::User < Base
     @role = role
   end
 
-  def admin?
-    role.to_sym == :admin
-  end
-
-  def general?
-    role.to_sym == :general
-  end
-
   def create_user(params)
+    Q5::User.new(params)
+  end
+
+  def general!
+    role = :general
+  end
+
+  def admin!
+    role = :admin
+  end
+
+  def grant_general_role(target_user)
     case role.to_sym
     when :admin
-      Q4::User.new(params)
+      target_user.general!
     when :general
       puts "※権限がありません※"
       puts "--------------------"
@@ -30,7 +34,7 @@ class Q5::User < Base
   def grant_admin_role(target_user)
     case role.to_sym
     when :admin
-      target_user.admin?
+      target_user.admin!
     when :general
       puts "※権限がありません※"
       puts "--------------------"
@@ -39,7 +43,7 @@ class Q5::User < Base
 
   def disp_data
     puts "名前: #{name}"
-    puts "権限: #{ROLE[role.to_sym]}"
+    puts "権限: #{ROLE[role]}"
     puts "--------------------"
   end
 end
