@@ -1,6 +1,6 @@
 require "./base.rb"
 
-class Q1::Method < Base
+class Q1::Main < Base
   def self.execute
     # -------- 以下編集不可 --------
     animals = ["dog", "cat"]
@@ -13,8 +13,8 @@ class Q1::Method < Base
 
   def self.output_value(array)
     # -------- 編集可 --------
-    if array
-      array.each do |v|
+    if araay
+      araay.each do |v|
         puts v
       end
     else
