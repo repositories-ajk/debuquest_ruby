@@ -20,14 +20,14 @@ class Q7::Menu
 
   private
 
-  def discount(total_price:, count:)
-    total_price -= 100 if count >= 3
-    total_price -= 100 if is_discount_day?
-    total_price
-  end
+    def discount(total_price:, count:)
+      total_price -= 100 if count >= 3
+      total_price -= 100 if is_discount_day?
+      total_price
+    end
 
-  def is_discount_day?
-    today = Date.today
-    today.monday?
-  end
+    def is_discount_day?
+      today = Date.today
+      today.sunday?
+    end
 end

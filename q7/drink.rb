@@ -10,6 +10,6 @@ class Q7::Drink < Q7::Menu
   end
 
   def info
-    text = "#{name} #{price}円(#{amount}ml)"
+    super
   end
 end
