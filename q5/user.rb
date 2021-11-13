@@ -1,12 +1,20 @@
 require "./base.rb"
 
-class Q4::User < Base
+class Q5::User < Base
   attr_accessor :name, :role
   ROLE = { admin: "管理者", general: "一般" }
 
   def initialize(name:, role:)
     @name = name
     @role = role
+  end
+
+  def admin?
+    role.to_sym == :admin
+  end
+
+  def general?
+    role.to_sym == :general
   end
 
   def create_user(params)
@@ -22,7 +30,7 @@ class Q4::User < Base
   def grant_admin_role(target_user)
     case role.to_sym
     when :admin
-      target_user.role = "admin"
+      target_user.admin?
     when :general
       puts "※権限がありません※"
       puts "--------------------"
