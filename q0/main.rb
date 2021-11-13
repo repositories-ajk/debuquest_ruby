@@ -1,14 +1,12 @@
 require "./base.rb"
 
-class Q0::Method < Base
+class Q0::Main < Base
   def self.execute
     puts "好きな数字を入力してください"
-    # 文字列なので数字に変換する
-    num_1 = gets.chomp.to_i
+    num_1 = gets.chomp
 
     puts "もう一度数字を入力してください"
-    # 文字列なので数字に変換する
-    num_2 = gets.chomp.to_i
+    num_2 = gets.chomp
 
     puts "足し算します"
 
