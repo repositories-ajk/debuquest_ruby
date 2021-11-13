@@ -1,6 +1,6 @@
 require "./base.rb"
 
-class Q5::User < Base
+class Q6::User < Base
   attr_accessor :name, :role
   ROLE = { admin: "管理者", general: "一般" }
 
@@ -10,7 +10,7 @@ class Q5::User < Base
   end
 
   def create_user(params)
-    Q5::User.new(params)
+    Q6::User.new(params)
   end
 
   def general!

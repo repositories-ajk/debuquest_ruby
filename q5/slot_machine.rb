@@ -1,4 +1,4 @@
-class SlotMachine
+class Q5::SlotMachine
   def rotate
     puts "「y」 キーを押してスロットマシーンを回してください！"
 

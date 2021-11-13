@@ -1,19 +1,35 @@
 require "./base.rb"
-require "./q6/slot_machine.rb"
+require "./q6/user.rb"
 
 class Q6::Main < Base
   def self.execute
-    slot_machine = SlotMachine.new
-    slot_machine.rotate
+    puts "〜管理ユーザー作成〜"
+    admin_user = Q6::User.new(name: "管理ユーザー", role: "admin")
+    admin_user.disp_data
 
-    numbers = [1, 3, 5, 7]
+    puts "〜一般ユーザー作成〜"
+    general_user = Q6::User.new(name: "一般ユーザー", role: "general")
+    general_user.disp_data
 
-    number1 = numbers.sample
-    number2 = numbers.sumple
-    number3 = numbers.sample
+    puts "〜管理ユーザーによるユーザー作成〜"
+    params = { name: "ユーザー1", role: "general" }
+    user1 = admin_user.create_user(params)
+    user1.disp_data
 
-    slot_machine.check_numbers(number1: number1, number2: number2, number3: number3)
-  rescue
-    puts "エラーが発生しています。どこでエラーしているのか調査しましょう。"
+    puts "〜一般ユーザーによるユーザー作成〜"
+    params = { name: "ユーザー2", role: "general" }
+    user2 = general_user.create_user(params)
+
+    puts "〜一般ユーザーによりユーザー1の権限を変更〜"
+    general_user.grant_admin_role(user1)
+    user1.disp_data
+
+    puts "〜管理ユーザーにより一般ユーザーの権限を変更〜"
+    admin_user.grant_admin_role(general_user)
+    general_user.disp_data
+
+    puts "〜管理ユーザーにより一般ユーザーの権限を変更(2回目)〜"
+    admin_user.grant_admin_role(general_user)
+    general_user.disp_data
   end
 end
