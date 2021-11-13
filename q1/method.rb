@@ -1,4 +1,4 @@
-require './base.rb'
+require "./base.rb"
 
 class Q1::Method < Base
   def self.execute
@@ -8,13 +8,13 @@ class Q1::Method < Base
 
     empty_array = []
     output_value(empty_array)
-  # -------- ここまで --------
+    # -------- ここまで --------
   end
 
   def self.output_value(array)
     # -------- 編集可 --------
-    if araay
-      araay.each do |v|
+    if array
+      array.each do |v|
         puts v
       end
     else
