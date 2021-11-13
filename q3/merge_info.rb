@@ -10,22 +10,22 @@ class Q3::MergeInfo
     age = 30
 
     # ユーザー基本情報格納
-    @base_info = {
+    base_info = {
       name: name,
       id: id,
       password: password
     }
 
     # ユーザー詳細情報格納
-    @detail_info = {
+    detail_info = {
       country: country,
       age: age
     }
   end
 
   def merge
-    userinfo = @base_info.merge(@detail_info)
-    res_id = userinfo[:id]
-    puts res_id
+    user_info = base_info.merge(detail_info)
+    user_id = user_info[:id]
+    puts user_id
   end
 end
