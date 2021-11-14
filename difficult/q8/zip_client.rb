@@ -1,4 +1,4 @@
-require "./q8/base_api_client.rb"
+require_relative "base_api_client.rb"
 
 class Q8::ZipClient
   BASE_URL = "https://api.zipaddress.net/"

@@ -1,8 +1,8 @@
 require "./base.rb"
-require "./q9/cart"
-require "./q9/menu"
-require "./q9/user"
-require "./q9/campaign"
+require_relative "cart"
+require_relative "menu"
+require_relative "user"
+require_relative "campaign"
 
 class Q9::Main < Base
   def self.execute

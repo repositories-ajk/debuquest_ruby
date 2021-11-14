@@ -1,6 +1,6 @@
 require "./base.rb"
-require "./q8/zip_client.rb"
-require "./q8/validation_error.rb"
+require_relative "zip_client.rb"
+require_relative "validation_error.rb"
 
 class Q8::Main < Base
   def self.execute

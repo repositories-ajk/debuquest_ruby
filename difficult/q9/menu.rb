@@ -1,5 +1,5 @@
 require "./base.rb"
-require "./q9/select_util.rb"
+require_relative "select_util.rb"
 
 class Q9::Menu < Base
   @@list = []
