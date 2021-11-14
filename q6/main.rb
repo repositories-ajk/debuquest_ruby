@@ -24,12 +24,12 @@ class Q6::Main < Base
     general_user.grant_admin_role(user1)
     user1.disp_data
 
-    puts "〜管理ユーザーにより一般ユーザーの権限を変更〜"
+    puts "〜管理ユーザーにより一般ユーザーを管理ユーザーに変更〜"
     admin_user.grant_admin_role(general_user)
     general_user.disp_data
 
-    puts "〜管理ユーザーにより一般ユーザーの権限を変更(2回目)〜"
-    admin_user.grant_admin_role(general_user)
+    puts "〜管理ユーザーにより上記ユーザーの権限を一般ユーザーに戻す〜"
+    admin_user.grant_general_role(general_user)
     general_user.disp_data
   end
 end
