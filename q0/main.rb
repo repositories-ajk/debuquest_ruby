@@ -1,6 +1,6 @@
-require './base.rb'
+require "./base.rb"
 
-class Q0::Method < Base
+class Q0::Main < Base
   def self.execute
     puts "好きな数字を入力してください"
     num_1 = gets.chomp

@@ -1,6 +1,6 @@
-require './base.rb'
+require "./base.rb"
 
-class Q1::Method < Base
+class Q1::Main < Base
   def self.execute
     # -------- 以下編集不可 --------
     animals = ["dog", "cat"]
@@ -8,7 +8,7 @@ class Q1::Method < Base
 
     empty_array = []
     output_value(empty_array)
-  # -------- ここまで --------
+    # -------- ここまで --------
   end
 
   def self.output_value(array)

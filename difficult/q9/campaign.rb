@@ -1,4 +1,4 @@
-require './base.rb'
+require "./base.rb"
 
 class Q9::Campaign < Base
   def initialize(name:, discout_price:, count: nil, day_of_week: nil)

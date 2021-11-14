@@ -4,7 +4,7 @@ module Q9::SelectUtil
       input_value = gets.chomp
       raise if select_range.include?(input_value)
     rescue
-      puts '選択できない番号です'
+      puts "選択できない番号です"
       retry
     end
   end

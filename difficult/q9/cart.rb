@@ -1,4 +1,4 @@
-require './base.rb'
+require "./base.rb"
 
 class Q9::Cart < Base
   attr_reader :total_price

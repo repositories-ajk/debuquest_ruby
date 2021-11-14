@@ -9,28 +9,27 @@ class Q7::Menu
   end
 
   def info
-    text = "#{self.name} #{self.price}円"
-
-    target_class = self.class.name.split('::').last
-
-    text
+    "#{name} #{price}円"
   end
 
-  def get_total_price(count)
+  def total_price(count)
     total_price = price * count
-
-    discount(total_price, count)
-
+    total_price = discount_price(count)
     total_price
   end
 
   private
 
-  def discount(total_price, count)
-    total_price -= 100 if count >= 3
-    total_price -= 100 if is_discount_day?
-  end
+    def discount_price(count)
+      discount_price = 0
+      discount_price -= 100 if count >= 3
+      discount_price -= 100 if is_discount_day?
+      discount_price
+    end
 
-  def is_discount_day?
-  end
+    def is_discount_day?
+      today = Date.today
+      # 問題を解いている本日の曜日であればディスカウントの曜日判定になるように修正しましょう
+      false
+    end
 end

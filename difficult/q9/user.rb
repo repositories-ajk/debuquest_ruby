@@ -1,5 +1,5 @@
-require './base.rb'
-require './q9/select_util.rb'
+require "./base.rb"
+require_relative "select_util.rb"
 
 class Q9::User < Base
   attr_reader :cart
@@ -17,12 +17,12 @@ class Q9::User < Base
     if can_buy_menu?(campaigns)
       @money -= cart.total_price
       puts "お買い上げありがとうございました！"
-      disp_info(column: '合計金額', value: cart.total_price)
-      disp_info(column: '残金', value: @money)
+      disp_info(column: "合計金額", value: cart.total_price)
+      disp_info(column: "残金", value: @money)
     else
       puts "所持金が足りません"
-      disp_info(column: '合計金額', value: cart.total_price)
-      disp_info(column: '所持金', value: @money)
+      disp_info(column: "合計金額", value: cart.total_price)
+      disp_info(column: "所持金", value: @money)
     end
   end
 
@@ -46,12 +46,12 @@ class Q9::User < Base
   def continue_shopping?
     continue = 1
 
-    puts '買い物を続けますか？'
-    puts '-----------------'
-    puts '1. 続ける'
-    puts '2. お会計をする'
-    puts '-----------------'
-    puts '番号を選んでください'
+    puts "買い物を続けますか？"
+    puts "-----------------"
+    puts "1. 続ける"
+    puts "2. お会計をする"
+    puts "-----------------"
+    puts "番号を選んでください"
 
     input_value = Q9::SelectUtil.continue(1..2)
 

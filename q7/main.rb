@@ -10,7 +10,7 @@ class Q7::Main < Base
 
     menus = [food1, food2, drink1, drink2]
 
-    puts "◯曜日は全品100円引き！"
+    puts "月曜日は全品100円引き！"
     puts "--------------"
 
     menus.each.with_index(1) do |menu, i|
@@ -21,15 +21,13 @@ class Q7::Main < Base
     puts "メニューの番号を選択してください"
     input_value = gets.chomp.to_i
 
-    selected_num = input_value - 1
-
-    selected_menu = menus[selected_num]
+    selected_menu = menus[input_value]
     puts "選択されたメニュー: #{selected_menu.name}"
 
     puts "個数を入力してください(3つ以上頼むと100円引き！)"
     input_value = gets.chomp.to_i
 
-    total_price = selected_menu.get_total_price(input_value)
+    total_price = selected_menu.total_price(input_value)
 
     puts "お会計は#{total_price}円です"
   end

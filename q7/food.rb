@@ -4,7 +4,12 @@ class Q7::Food < Q7::Menu
   attr_accessor :calorie
 
   def initialize(name:, price:, calorie:)
-    super(name: name, price: price)
+    @name = name
+    @price = price
     @calorie = calorie
+  end
+
+  def info
+    super
   end
 end
