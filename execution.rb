@@ -7,8 +7,6 @@ require "./q4/main"
 require "./q5/main"
 require "./q6/main"
 require "./q7/main"
-require "./q8/main"
-require "./q9/main"
 
 class Execution
   QUESTION_NUMS = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
