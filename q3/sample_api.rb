@@ -6,19 +6,17 @@ class Q3::SampleApi
     name = "木村"
     age = 30
     country = "japan"
-    password = "pass123"
 
     case type.to_sym
     when :base
       {
         id: id,
         name: name,
-        age: age,
       }
     when :detail
       {
+        age: age,
         country: country,
-        password: password
       }
     else
       raise "Invalid type Error!"
