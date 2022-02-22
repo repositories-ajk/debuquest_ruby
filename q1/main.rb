@@ -13,8 +13,8 @@ class Q1::Main < Base
 
   def self.output_value(array)
     # -------- 編集可 --------
-    if araay
-      araay.each do |v|
+    if !array.empty?
+      array.each do |v|
         puts v
       end
     else
